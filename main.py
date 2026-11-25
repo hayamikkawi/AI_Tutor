@@ -8,10 +8,12 @@ load_dotenv()
 client = OpenAI(
         api_key=os.getenv("OPENAI_API_KEY")
     )
+# Get the question from the user 
+question = input("What do you want to ask the AI tutor?")
 # send a request to the API
 response = client.responses.create(
     model= "gpt-4.1-mini",
-    input= "Explain Agentic AI in simple words"
+    input= question
 )
 # display the response
 print(response.output_text)
